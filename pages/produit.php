@@ -20,17 +20,17 @@ $nbrCakes= count($liste);
 
 ?>
 
-<div class ="contact ">
+<div class ="contact center ">
     <form action="<?php print $_SERVER ['PHP_SELF'];?>" method="get" id="form_commande">
-        <div class="col-sm-1 ">
-            <span class="txtGras"> Th&egrave;me</span>
+        <div class="col-sm-1  center">
+            <span class="txtGras center "> Catégorie</span>
         </div>
     <div>
         
-        <div class="contact">
+        <div class="contact center">
             <select name="id_type_haut" id="id_type_haut">
                 <option value=""></option>
-              <option value="tout">Tout</option>
+              
                 <?php
                 
                 for ($i = 0; $i < $nbrTypes; $i++) {
@@ -70,26 +70,32 @@ $nbrCakes= count($liste);
    ?>
                 </div>                             
             </div>
+    
+    
 
-<table  class="col-sm-5 contact">  
+<table  width="50%" class="col-sm-3 contact table">
+        <tr>
+            <td>Image</td>
+            <td>Nom</td>
+            <td>Prix</td>
+         
+
+
+        </tr>
 <?php 
     for($i=0;$i<$nbrCakes;$i++){
    ?>
 <tr>
-                   <td><img src="admin/image/<?php print $liste[$i]['image'];?>" alt="Erreur"/></td>
+    <td class="img"><img src="admin/image/<?php print $liste[$i]['image'];?>" alt="Erreur"/></td><br/>
                    
-                    <td><?php print ($liste[$i]['nom_haut']);?></td>
+                   <td><a href="index.php?page=produitchoix&id=<?php print $liste[$i]['id_haut']?>"><?php print ($liste[$i]['nom_haut']);?></a></td>
                     <td><?php print utf8_decode($liste[$i]['prix_unitaire']);?></td></tr>
                     
                 
 
 
-<tr>
-<td>
-                                <a href="index.php?page=commande&id=<?php print $liste[$i]['id_haut']?>">
-                                Commander</a>
-    <a href="index.php?page=addpanier&id=<?php print $liste[$i]['id_haut']?>"> Panier </a>
-</td></tr>
+
+
                        
  <?php 
     }
